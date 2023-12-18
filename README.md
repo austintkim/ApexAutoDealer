@@ -2,10 +2,12 @@
 
 Team:
 
-* Person 1 - Which microservice?
-* Person 2 - Which microservice?
+* Austin - Service
+* Peace - Sales
 
 ## Design
+
+![Alt text](image.png)
 
 ## Service microservice
 
