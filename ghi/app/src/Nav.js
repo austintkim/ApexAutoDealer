@@ -1,4 +1,7 @@
 import { NavLink } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
+// import './index.css'
+
 
 function Nav() {
   return (
@@ -9,6 +12,59 @@ function Nav() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Inventory
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className='dropdown_menu'>
+              <Dropdown.Item>
+                <NavLink to="/manufacturers">Manufacturers list</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/manufacturers/create">Add a manufacturer</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/models">Vehicle models list</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/models/create">Add a vehicle model</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/automobiles">Automobiles List</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/automobiles/create">Add an automobiles</NavLink>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Sale
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className='dropdown_menu'>
+              <Dropdown.Item>
+                <NavLink to="/salespeople">Salespeople</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/salespeople/create">Add a salesperson</NavLink>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Service
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className='dropdown_menu'>
+              <Dropdown.Item>
+                <NavLink to="">Dropdown Item</NavLink>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
