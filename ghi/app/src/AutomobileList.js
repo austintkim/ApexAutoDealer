@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import './index.css'
+
 
 function AutomobileList() {
     const [automobiles, setAutomobiles] = useState([]);

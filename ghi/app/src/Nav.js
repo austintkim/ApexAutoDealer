@@ -46,7 +46,10 @@ function Nav() {
 
             <Dropdown.Menu className='dropdown_menu'>
               <Dropdown.Item>
-                <NavLink to="">Dropdown Item</NavLink>
+                <NavLink to="/salespeople">Salespeople</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/salespeople/create">Add a salesperson</NavLink>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

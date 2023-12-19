@@ -60,7 +60,7 @@ function VehicleModelForm(){
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
             <h2>Add a vehicle model</h2>
-            <form onSubmit={handleSubmit} id="create-manufacturer-form">
+            <form onSubmit={handleSubmit}>
               <div className="form-floating mb-3">
                 <input onChange={handleNameChange} placeholder="Model name" required type="text" value={name} name="name" id="name" className="form-control"/>
                 <label htmlFor="name">Model name...</label>

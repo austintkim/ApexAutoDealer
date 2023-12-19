@@ -30,6 +30,11 @@ def poll(repeat=True):
                     vin=automobile["vin"],
                     defaults={"sold":automobile["sold"], "id":automobile["id"]},
                 )
+
+
+
+
+                
         except Exception as e:
             print(e, file=sys.stderr)
 
