@@ -8,7 +8,18 @@ import json
 
 class AutomobileVOListEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin", "sold"]
+    properties = ["vin", "sold", "id"]
+
+@require_http_methods(["GET"])
+def api_list_autoVO(request):
+
+    if request.method == "GET":
+        autovo = AutomobileVO.objects.all()
+        return JsonResponse(
+            {"autovo": autovo},
+            encoder=AutomobileVOListEncoder,
+            safe=False
+        )
 
 
 class SalespersonListEncoder(ModelEncoder):
@@ -29,11 +40,13 @@ class CustomerListEncoder(ModelEncoder):
 class SaleListEncoder(ModelEncoder):
     model = Customer
     properties = [
-        "automobile",
-        "salesperson",
-        "customer",
         "price"
-        ]
+    ]
+    encoders = {
+        "automobile": AutomobileVOListEncoder(),
+        "salesperson": SalespersonListEncoder(),
+        "customer": CustomerListEncoder(),
+    }
 
 
 @require_http_methods(["GET", "POST"])
