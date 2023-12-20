@@ -22,10 +22,12 @@ class AppointmentDetailEncoder(ModelEncoder):
         "status",
         "vin",
         "customer",
-        "technician"
+        "technician",
+        "automobile"
     ]
     encoders = {
-        "technician": TechnicianDetailEncoder()
+        "technician": TechnicianDetailEncoder(),
+        "automobile": AutomobileVODetailEncoder()
     }
     def get_extra_data(self, o):
         return {"status": o.status.name}
@@ -83,6 +85,18 @@ def list_appointments(request):
         except Technician.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid technician id"},
+                status = 400
+            )
+
+        try:
+            automobile_vo_id = content["automobile"]
+            automobile_vo = AutomobileVO.objects.get(id = automobile_vo_id)
+            content["automobile"] = automobile_vo
+
+
+        except AutomobileVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid automobile id"},
                 status = 400
             )
 

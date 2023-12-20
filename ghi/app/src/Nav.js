@@ -34,7 +34,7 @@ function Nav() {
                 <NavLink to="/automobiles">Automobiles List</NavLink>
               </Dropdown.Item>
               <Dropdown.Item>
-                <NavLink to="/automobiles/create">Add an automobiles</NavLink>
+                <NavLink to="/automobiles/create">Add an automobile</NavLink>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -61,21 +61,22 @@ function Nav() {
 
             <Dropdown.Menu className='dropdown_menu'>
               <Dropdown.Item>
-                <NavLink to="">Dropdown Item</NavLink>
+                <NavLink to="/technicians">Technicians</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/technicians/new">Add a technician</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/appointments">Appointments</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/appointments/new">Create an appointment</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/history">Service History</NavLink>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/technicians" end>Technicians</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/technicians/new" >Create a technician</NavLink>
-            </li>
-          </ul>
         </div>
       </div>
     </nav>
