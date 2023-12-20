@@ -28,7 +28,6 @@ class AutomobileVO(models.Model):
     sold = models.BooleanField(default=False)
 
 class Appointment(models.Model):
-
     @classmethod
     def create(cls, **kwargs):
         kwargs["status"] = Status.objects.get(name="Created")
