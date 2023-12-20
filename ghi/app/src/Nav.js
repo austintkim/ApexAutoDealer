@@ -1,6 +1,5 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
-// import './index.css'
 
 
 function Nav() {
@@ -18,23 +17,23 @@ function Nav() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu className='dropdown_menu'>
-              <Dropdown.Item>
-                <NavLink to="/manufacturers">Manufacturers list</NavLink>
+              <Dropdown.Item as={NavLink} to="/manufacturers" end>
+                Manufacturers list
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/manufacturers/create">Add a manufacturer</NavLink>
+              <Dropdown.Item as={NavLink} to="/manufacturers/create">
+                Add a manufacturer
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/models">Vehicle models list</NavLink>
+              <Dropdown.Item as={NavLink} to="/models" end>
+                Vehicle models list
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/models/create">Add a vehicle model</NavLink>
+              <Dropdown.Item as={NavLink} to="/models/create">
+                Add a vehicle model
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/automobiles">Automobiles List</NavLink>
+              <Dropdown.Item as={NavLink} to="/automobiles" end>
+                Automobiles List
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/automobiles/create">Add an automobile</NavLink>
+              <Dropdown.Item as={NavLink} to="/automobiles/create">
+                Add an automobile
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -45,23 +44,23 @@ function Nav() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu className='dropdown_menu'>
-              <Dropdown.Item>
-                <NavLink to="/salespeople">Salespeople</NavLink>
+              <Dropdown.Item as={NavLink} to="/salespeople" end>
+                Salespeople
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/salespeople/create">Add a salesperson</NavLink>
+              <Dropdown.Item as={NavLink} to="/salespeople/create">
+                Add a salesperson
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/customers">Customer</NavLink>
+              <Dropdown.Item as={NavLink} to="/customers" end>
+                Customer
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/customers/create">Add a customer</NavLink>
+              <Dropdown.Item as={NavLink} to="/customers/create">
+                Add a customer
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/sales">Sales</NavLink>
+              <Dropdown.Item as={NavLink} to="/sales" end>
+                Sales
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/sales/create">Add a sale</NavLink>
+              <Dropdown.Item as={NavLink} to="/sales/create">
+                Add a sale
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -72,20 +71,20 @@ function Nav() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu className='dropdown_menu'>
-              <Dropdown.Item>
-                <NavLink to="/technicians">Technicians</NavLink>
+              <Dropdown.Item as={NavLink} to="/technicians" end>
+                Technicians
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/technicians/new">Add a technician</NavLink>
+              <Dropdown.Item as={NavLink} to="/technicians/create">
+                Add a technician
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/appointments">Appointments</NavLink>
+              <Dropdown.Item as={NavLink} to="/appointments" end>
+                Appointments
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/appointments/new">Create an appointment</NavLink>
+              <Dropdown.Item as={NavLink} to="/appointments/create">
+                Create an appointment
               </Dropdown.Item>
-              <Dropdown.Item>
-                <NavLink to="/history">Service History</NavLink>
+              <Dropdown.Item as={NavLink} to="/history">
+                Service History
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

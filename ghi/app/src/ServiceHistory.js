@@ -10,6 +10,8 @@ function ServiceHistory() {
         if (response.ok) {
             const data = await response.json();
             setAppointments(data.appointments);
+        } else {
+            throw new Error('Failed to retrieve appointments data')
         }
     }
     useEffect(() => {
@@ -27,7 +29,9 @@ function ServiceHistory() {
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
-            setAppointments(data.appointments.filter(appointment => appointment.vin == vin));
+            setAppointments(data.appointments.filter(appointment => appointment.vin === vin));
+        } else {
+            throw new Error('Failed to retrieve appointments data')
         }
     }
 
@@ -58,12 +62,11 @@ function ServiceHistory() {
                     {appointments
                         .map(appointment => {
                             const date = appointment.date_time.slice(0, 10);
-                            const time = appointment.date_time.slice(10, appointment.date_time.length);
-                            if(appointment.automobile.sold && appointment.vin === appointment.automobile.vin) {
+                            const time = appointment.date_time.slice(11, 16);
                             return (
                                 <tr key={appointment.id}>
                                     <td>{appointment.vin}</td>
-                                    <td>Yes</td>
+                                    <td>{appointment.special_vip}</td>
                                     <td>{appointment.customer}</td>
                                     <td>{date}</td>
                                     <td>{time}</td>
@@ -72,20 +75,6 @@ function ServiceHistory() {
                                     <td>{appointment.status}</td>
                                 </tr>
                             )
-                        } else {
-                            return (
-                                <tr key={appointment.id}>
-                                <td>{appointment.vin}</td>
-                                <td>No</td>
-                                <td>{appointment.customer}</td>
-                                <td>{date}</td>
-                                <td>{time}</td>
-                                <td>{appointment.technician.first_name} {appointment.technician.last_name}</td>
-                                <td>{appointment.reason}</td>
-                                <td>{appointment.status}</td>
-                            </tr>
-                            )
-                        }
                         })}
                 </tbody>
             </table>

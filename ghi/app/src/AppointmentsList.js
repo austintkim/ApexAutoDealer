@@ -10,6 +10,8 @@ function AppointmentsList() {
         if (response.ok) {
             const data = await response.json();
             setAppointments(data.appointments);
+        } else {
+            throw new Error('Failed to retrieve appointments data')
         }
     }
     useEffect(() => {
@@ -32,6 +34,8 @@ function AppointmentsList() {
         const response = await fetch(cancelUrl, fetchConfig);
         if (response.ok) {
             fetchData();
+        } else {
+            throw new Error('Failed to cancel appointment')
       }
     }
 
@@ -51,7 +55,9 @@ function AppointmentsList() {
         const response = await fetch(finishUrl, fetchConfig);
         if (response.ok) {
             fetchData();
-      }
+        } else {
+            throw new Error('Failed to mark appointment as finished')
+        }
     }
     return (
         <div>
@@ -71,13 +77,12 @@ function AppointmentsList() {
                 <tbody>
                     {appointments.map(appointment => {
                         const date = appointment.date_time.slice(0, 10);
-                        const time = appointment.date_time.slice(10, appointment.date_time.length);
+                        const time = appointment.date_time.slice(11, 16);
                         if (appointment.status === "Created"){
-                            if(appointment.automobile.sold && appointment.vin === appointment.automobile.vin) {
-                            return (
+                            return(
                                 <tr key={appointment.id}>
                                     <td>{appointment.vin}</td>
-                                    <td>Yes</td>
+                                    <td>{appointment.special_vip}</td>
                                     <td>{appointment.customer}</td>
                                     <td>{date}</td>
                                     <td>{time}</td>
@@ -92,28 +97,11 @@ function AppointmentsList() {
                                     </td>
                                 </tr>
                             )
-                        } else {
-                            return (
-                                <tr key={appointment.id}>
-                                <td>{appointment.vin}</td>
-                                <td>No</td>
-                                <td>{appointment.customer}</td>
-                                <td>{date}</td>
-                                <td>{time}</td>
-                                <td>{appointment.technician.first_name} {appointment.technician.last_name}</td>
-                                <td>{appointment.reason}</td>
-                                <td><button onClick={()=> {
-                                        handleCancel(appointment.id)
-                                    }} className="btn btn-danger">Cancel</button>
-                                    <button onClick={()=> {
-                                        handleFinish(appointment.id)
-                                    }} className="btn btn-success">Finish</button>
-                                </td>
-                            </tr>
-                            )
-                        }
+
+                    }})
                 }
-                    })}
+
+
                 </tbody>
             </table>
         </div>

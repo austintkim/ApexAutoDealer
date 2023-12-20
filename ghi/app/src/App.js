@@ -41,9 +41,9 @@ function App() {
           <Route path="/sales/create" element={<SaleForm />} />
           <Route path="/sales/history" element={<SalespersonHistoryList />} />
           <Route path="/technicians" element={<TechniciansList />} />
-          <Route path="/technicians/new" element={<TechnicianForm />} />
+          <Route path="/technicians/create" element={<TechnicianForm />} />
           <Route path="/appointments" element={<AppointmentsList />} />
-          <Route path="/appointments/new" element={<AppointmentForm />} />
+          <Route path="/appointments/create" element={<AppointmentForm />} />
           <Route path="/history" element={<ServiceHistory />} />
         </Routes>
       </div>
