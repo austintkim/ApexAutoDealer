@@ -78,6 +78,15 @@ function Nav() {
             </Dropdown.Menu>
           </Dropdown>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/technicians" end>Technicians</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/technicians/new" >Create a technician</NavLink>
+            </li>
           </ul>
         </div>
       </div>

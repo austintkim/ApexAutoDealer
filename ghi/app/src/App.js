@@ -1,6 +1,8 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
+import TechniciansList from './TechniciansList';
+import TechnicianForm from './TechnicianForm';
 import ManufacturersList from './ManufacturersList';
 import ManufacturersForm from './ManufacturersForm';
 import VehicleModelList from './VehicleModelList';
@@ -17,8 +19,8 @@ import SalespersonHistoryList from './SalespersonHistoryList';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Nav />
+    <>
+    <Nav />
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
@@ -35,9 +37,12 @@ function App() {
           <Route path="/sales" element={<SaleList />} />
           <Route path="/sales/create" element={<SaleForm />} />
           <Route path="/sales/history" element={<SalespersonHistoryList />} />
+          <Route path="/technicians" element={<TechniciansList />} />
+          <Route path="/technicians/new" element={<TechnicianForm />} />
         </Routes>
       </div>
-    </BrowserRouter>
+
+    </>
   );
 }
 

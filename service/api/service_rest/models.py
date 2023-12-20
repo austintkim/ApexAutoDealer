@@ -51,6 +51,7 @@ class Appointment(models.Model):
         related_name = "appointments",
         on_delete = models.CASCADE,
     )
+    #VIP = models.BooleanField(default=False)
 
     def finish(self):
         status = Status.objects.get(name="Finished")
