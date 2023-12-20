@@ -6,7 +6,8 @@ from .views import (
     api_delete_customer,
     api_list_sales,
     api_delete_sale,
-    api_list_autoVO
+    api_list_automobiles,
+    api_detail_automobiles
 )
 
 
@@ -17,5 +18,6 @@ urlpatterns = [
     path("customers/<int:id>/", api_delete_customer, name="api_delete_customer"),
     path("sales/", api_list_sales, name="api_list_sales"),
     path("sales/<int:id>/", api_delete_sale, name="api_delete_sale"),
-    path("auto/", api_list_autoVO, name="api_list_autoVO")
+    path("sales/automobiles/", api_list_automobiles, name="api_list_automobiles"),
+    path("sales/automobiles/<str:vin>/", api_detail_automobiles, name="api_detail_automobiles")
 ]

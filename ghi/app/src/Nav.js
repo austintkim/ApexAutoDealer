@@ -51,6 +51,18 @@ function Nav() {
               <Dropdown.Item>
                 <NavLink to="/salespeople/create">Add a salesperson</NavLink>
               </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/customers">Customer</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/customers/create">Add a customer</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/sales">Sales</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/sales/create">Add a sale</NavLink>
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
 

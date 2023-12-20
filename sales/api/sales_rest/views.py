@@ -4,22 +4,12 @@ from common.json import ModelEncoder
 from django.http import JsonResponse
 from .models import AutomobileVO, Salesperson, Customer, Sale
 import json
+import requests
 
 
 class AutomobileVOListEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin", "sold", "id"]
-
-@require_http_methods(["GET"])
-def api_list_autoVO(request):
-
-    if request.method == "GET":
-        autovo = AutomobileVO.objects.all()
-        return JsonResponse(
-            {"autovo": autovo},
-            encoder=AutomobileVOListEncoder,
-            safe=False
-        )
+    properties = ["vin", "sold"]
 
 
 class SalespersonListEncoder(ModelEncoder):
@@ -44,7 +34,8 @@ class SaleListEncoder(ModelEncoder):
         "price",
         "automobile",
         "salesperson",
-        "customer"
+        "customer",
+        "id"
 
     ]
     encoders = {
@@ -113,6 +104,29 @@ def api_delete_customer(request, id):
         return JsonResponse({"deleted": count > 0})
 
 
+@require_http_methods(["GET"])
+def api_list_automobiles(request):
+
+    if request.method == "GET":
+        automobiles = AutomobileVO.objects.all()
+        return JsonResponse(
+            {"automobiles": automobiles},
+            encoder=AutomobileVOListEncoder,
+            safe=False
+        )
+
+@require_http_methods(["GET"])
+def api_detail_automobiles(request, vin):
+    if request.method == "GET":
+        automobiles = AutomobileVO.objects.get(vin=vin)
+        return JsonResponse(
+            {"automobiles": automobiles},
+            encoder=AutomobileVOListEncoder,
+            safe=False
+        )
+
+
+
 @require_http_methods(["GET", "POST"])
 def api_list_sales(request):
 
@@ -128,9 +142,8 @@ def api_list_sales(request):
         content = json.loads(request.body)
         # Get the Automobile object and put it in the content dict
         try:
-
             automobileID = content["automobile"]
-            automobile = AutomobileVO.objects.get(id=automobileID)
+            automobile = AutomobileVO.objects.get(vin=automobileID)
             content["automobile"] = automobile
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
@@ -142,7 +155,6 @@ def api_list_sales(request):
         try:
             salespersonID = content["salesperson"]
             salesperson = Salesperson.objects.get(id=salespersonID)
-            print(salesperson)
             content["salesperson"] = salesperson
         except Salesperson.DoesNotExist:
             return JsonResponse(
@@ -154,7 +166,6 @@ def api_list_sales(request):
         try:
             customerID = content["customer"]
             customer = Customer.objects.get(id=customerID)
-            print(customer)
             content["customer"] = customer
         except Customer.DoesNotExist:
             return JsonResponse(
