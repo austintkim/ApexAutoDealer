@@ -2,33 +2,13 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
 
-from common.json import ModelEncoder
-from .models import Technician, AutomobileVO, Appointment
+from .encoders import (
+    TechnicianDetailEncoder,
+    AppointmentDetailEncoder
+)
 
-class AutomobileVODetailEncoder(ModelEncoder):
-    model = AutomobileVO
-    properties = ["vin", "sold"]
+from .models import AutomobileVO, Technician, Appointment
 
-class TechnicianDetailEncoder(ModelEncoder):
-    model = Technician
-    properties = ["first_name", "last_name", "employee_id", "id"]
-
-class AppointmentDetailEncoder(ModelEncoder):
-    model = Appointment
-    properties = [
-        "id",
-        "date_time",
-        "reason",
-        "status",
-        "vin",
-        "customer",
-        "technician"
-    ]
-    encoders = {
-        "technician": TechnicianDetailEncoder()
-    }
-    def get_extra_data(self, o):
-        return {"status": o.status.name}
 
 
 @require_http_methods(["GET", "POST"])
@@ -63,6 +43,7 @@ def delete_technician(request, pk):
         count, _ = Technician.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count > 0})
 
+
 @require_http_methods(["GET", "POST"])
 def list_appointments(request):
     if request.method == "GET":
@@ -86,12 +67,22 @@ def list_appointments(request):
                 status = 400
             )
 
+        try:
+            appointment_vin = content["vin"]
+            AutomobileVO.objects.get(vin = appointment_vin, sold = True)
+            content["special_vip"] = "Yes"
+
+        except AutomobileVO.DoesNotExist:
+            content["special_vip"] = "No"
+
+
         appointment = Appointment.create(**content)
         return JsonResponse(
             appointment,
             encoder=AppointmentDetailEncoder,
             safe=False
         )
+
 
 @require_http_methods(["DELETE"])
 def delete_appointment(request, pk):
