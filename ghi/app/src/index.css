@@ -16,10 +16,6 @@ code {
   text-decoration: none;
 }
 
-.test:active {
-  background-color: yellow;
-}
-
 
 .img {
   height: 125px;

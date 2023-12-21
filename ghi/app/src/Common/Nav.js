@@ -12,7 +12,7 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <Dropdown>
-            <Dropdown.Toggle className="test" id="dropdown-basic">
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
               Inventory
             </Dropdown.Toggle>
 

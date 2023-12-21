@@ -1,24 +1,24 @@
 import { Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
-import TechniciansList from './TechniciansList';
-import TechnicianForm from './TechnicianForm';
+import TechniciansList from '../ServiceComponents/TechniciansList';
+import TechnicianForm from '../ServiceComponents/TechnicianForm';
 import ManufacturersList from './ManufacturersList';
 import ManufacturersForm from './ManufacturersForm';
 import VehicleModelList from './VehicleModelList';
 import VehicleModelForm from './VehicleModelForm';
 import AutomobileList from './AutomobileList';
 import AutomobileForm from './AutomobileForm';
-import SalespeopleForm from './SalespeopleForm';
-import SalespeopleList from './SalespeopleList';
-import AppointmentsList from './AppointmentsList';
-import AppointmentForm from './AppointmentForm'
-import ServiceHistory from './ServiceHistory';
-import CustomerForm from './CustomerForm';
-import CustomerList from './CustomerList';
-import SaleForm from './SaleForm';
-import SaleList from './SaleList';
-import SalespersonHistoryList from './SalespersonHistoryList';
+import SalespeopleForm from '../SalesComponents/SalespeopleForm';
+import SalespeopleList from '../SalesComponents/SalespeopleList';
+import AppointmentsList from '../ServiceComponents/AppointmentsList';
+import AppointmentForm from '../ServiceComponents/AppointmentForm'
+import ServiceHistory from '../ServiceComponents/ServiceHistory';
+import CustomerForm from '../SalesComponents/CustomerForm';
+import CustomerList from '../SalesComponents/CustomerList';
+import SaleForm from '../SalesComponents/SaleForm';
+import SaleList from '../SalesComponents/SaleList';
+import SalespersonHistoryList from '../SalesComponents/SalespersonHistoryList';
 
 
 function App() {
