@@ -31,7 +31,7 @@ function ServiceHistory() {
             const data = await response.json();
             setAppointments(data.appointments.filter(appointment => appointment.vin === vin));
         } else {
-            throw new Error('Failed to retrieve appointments data')
+            throw new Error('Failed to retrieve appointments data');
         }
     }
 
@@ -41,7 +41,7 @@ function ServiceHistory() {
             <div className="mb-3">
                 <input onChange={handleVinChange} type="search" placeholder="Search by VIN" id="vin-search" value={vin} name="vin-search" />
                 <button onClick = {()=> {
-                    filterData(vin)
+                    filterData(vin);
                 }}
                 >Search</button>
             </div>
@@ -63,7 +63,7 @@ function ServiceHistory() {
                         .map(appointment => {
                             const formatted_date_time = new Date(appointment.date_time).toLocaleString();
                             const formatted_date = formatted_date_time.substring(0, formatted_date_time.indexOf(","));
-                            const formatted_time = formatted_date_time.substring(formatted_date_time.indexOf(" "), formatted_date_time.length)
+                            const formatted_time = formatted_date_time.substring(formatted_date_time.indexOf(" "), formatted_date_time.length);
                             return (
                                 <tr key={appointment.id}>
                                     <td>{appointment.vin}</td>

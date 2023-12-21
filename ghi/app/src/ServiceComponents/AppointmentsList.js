@@ -11,7 +11,7 @@ function AppointmentsList() {
             const data = await response.json();
             setAppointments(data.appointments);
         } else {
-            throw new Error('Failed to retrieve appointments data')
+            throw new Error('Failed to retrieve appointments data');
         }
     }
     useEffect(() => {
@@ -35,7 +35,7 @@ function AppointmentsList() {
         if (response.ok) {
             fetchData();
         } else {
-            throw new Error('Failed to cancel appointment')
+            throw new Error('Failed to cancel appointment');
       }
     }
 
@@ -56,7 +56,7 @@ function AppointmentsList() {
         if (response.ok) {
             fetchData();
         } else {
-            throw new Error('Failed to mark appointment as finished')
+            throw new Error('Failed to mark appointment as finished');
         }
     }
     return (
@@ -78,7 +78,7 @@ function AppointmentsList() {
                     {appointments.map(appointment => {
                         const formatted_date_time = new Date(appointment.date_time).toLocaleString();
                         const formatted_date = formatted_date_time.substring(0, formatted_date_time.indexOf(","));
-                        const formatted_time = formatted_date_time.substring(formatted_date_time.indexOf(" "), formatted_date_time.length)
+                        const formatted_time = formatted_date_time.substring(formatted_date_time.indexOf(" "), formatted_date_time.length);
                         if (appointment.status === "Created"){
                             return(
                                 <tr key={appointment.id}>

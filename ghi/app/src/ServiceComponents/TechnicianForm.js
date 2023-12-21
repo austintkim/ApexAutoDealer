@@ -37,7 +37,7 @@ function TechnicianForm() {
       navigate("/technicians");
       setFormData(initialData);
     } else {
-        throw new Error('Failed to create a new technician')
+        throw new Error('Failed to create a new technician');
     }
   }
 
