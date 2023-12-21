@@ -41,16 +41,25 @@ CarCar is made up of three microservices (bounded contexts) interacting with eac
 
 **Service-specific Getting Started:**
 
+*Note to user:* This step is critical in order to create an appointment. If this step is skipped, a "Status.DoesNotExist" error will be raised and the appointment creation will be unsuccessful.
+
 ```
 Run docker exec -it project-beta-service-api-1 bash
 Run python manage.py createsuperuser
-Follow prompts and create a username and password (note that creating an email is optional)
+Follow prompts and create a username and password (creating an email is optional)
 Type http://localhost:8080/admin/ into your browser and login using the credentials for the admin account you just created
 Click into Statuses
 Create:
-- A status named "Created" with an id of 0.
-- A status named "Canceled" with an id of 1.
-- A status named "Finished" with an id of 2.
+    1. A status with the following two property values:
+        - Name: "Created"
+        - Id: 0
+    2. A status with the following two property values:
+        - Name: "Canceled"
+        - Id: 1
+    3. A status with the following two property values:
+        - Name: "Finished"
+        - Id: 2
+
 
 ```
 
@@ -454,4 +463,4 @@ Sales microservice was created to handle the sales of any automobile in the CarC
 }
 
 ## Value Object
-In refernce to the attached diagram, the value object for this microservice is the AutomobileVO. 
+In refernce to the attached diagram, the value object for this microservice is the AutomobileVO.
