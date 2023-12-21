@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 
+
 function ManufacturersList() {
     const [manufacturers, setManufacturers] = useState([]);
     const fetchData = async () => {
@@ -13,10 +14,9 @@ function ManufacturersList() {
     useEffect(() => {
         fetchData();
     }, []);
-
     return (
         <div>
-            <h2>Manufacturers</h2>
+            <h2 style={{ marginTop: 50 }}>Manufacturers</h2>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -36,5 +36,6 @@ function ManufacturersList() {
         </div>
     );
 }
+
 
 export default ManufacturersList;

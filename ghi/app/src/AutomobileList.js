@@ -14,7 +14,6 @@ function AutomobileList() {
     useEffect(() => {
         fetchData();
     }, []);
-
     return (
         <div>
             <h2>Automobiles</h2>
@@ -45,5 +44,6 @@ function AutomobileList() {
         </div>
     );
 }
+
 
 export default AutomobileList;

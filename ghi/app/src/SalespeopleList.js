@@ -14,7 +14,6 @@ function SalespeopleList() {
     useEffect(() => {
         fetchData();
     }, []);
-
     return (
         <div>
             <h2>Salespeople</h2>
@@ -41,5 +40,6 @@ function SalespeopleList() {
         </div>
     );
 }
+
 
 export default SalespeopleList;

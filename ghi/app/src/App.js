@@ -17,6 +17,7 @@ import SaleForm from './SaleForm';
 import SaleList from './SaleList';
 import SalespersonHistoryList from './SalespersonHistoryList';
 
+
 function App() {
   return (
     <>
@@ -41,9 +42,9 @@ function App() {
           <Route path="/technicians/new" element={<TechnicianForm />} />
         </Routes>
       </div>
-
     </>
   );
 }
+
 
 export default App;

@@ -14,7 +14,6 @@ function SaleList() {
     useEffect(() => {
         fetchData();
     }, []);
-
     return (
         <div>
             <h2>Sales</h2>
@@ -45,5 +44,6 @@ function SaleList() {
         </div>
     );
 }
+
 
 export default SaleList;

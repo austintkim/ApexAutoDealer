@@ -13,9 +13,13 @@ code {
 }
 
 .dropdown_menu {
-  background-color: #d9ebd9;
-  text-decoration-color: black;
+  text-decoration: none;
 }
+
+.test:active {
+  background-color: yellow;
+}
+
 
 .img {
   height: 125px;

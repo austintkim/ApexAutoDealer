@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
+
 function SaleForm(){
     const navigate = useNavigate()
-
     const [automobiles, setAutomobiles] = useState([]);
     const [salespeople, setSalespeople] = useState([]);
     const [customers, setCustomers] = useState([]);
@@ -14,14 +14,12 @@ function SaleForm(){
             const data = await automobilesResponse.json();
             setAutomobiles(data.automobiles);
         }
-
         const salespeopleUrl = "http://localhost:8090/api/salespeople/";
         const salespeopleResponse = await fetch(salespeopleUrl);
         if (salespeopleResponse.ok) {
             const data = await salespeopleResponse.json();
             setSalespeople(data.salespeople);
         }
-
         const customersUrl = "http://localhost:8090/api/customers/";
         const customersResponse = await fetch(customersUrl);
         if (customersResponse.ok) {
@@ -32,7 +30,6 @@ function SaleForm(){
     useEffect(() => {
         fetchData();
     }, []);
-
     const [automobile, setAutomobile] = useState('');
     const [salesperson, setSalesperson] = useState('');
     const [customer, setCustomer] = useState('');
@@ -53,7 +50,6 @@ function SaleForm(){
         const value = event.target.value;
         setPrice(value);
     }
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         const saleData = {}
@@ -62,11 +58,9 @@ function SaleForm(){
         saleData.customer = customer
         saleData.price = price
         const saleJson = JSON.stringify(saleData)
-
         const automobileData = {}
         automobileData.sold = true
         const automobileJson = JSON.stringify(automobileData)
-
         const saleUrl = 'http://localhost:8090/api/sales/';
         const automobileUrl = `http://localhost:8100/api/automobiles/${automobile}/`
         const SaleFetchOptions = {
@@ -83,7 +77,6 @@ function SaleForm(){
                 'Content-Type': 'application/json',
             }
         }
-
         const saleResponse = await fetch(saleUrl, SaleFetchOptions)
         const automobileResponse = await fetch(automobileUrl, AutomobileFetchOptions)
         if (saleResponse.ok) {
@@ -94,7 +87,6 @@ function SaleForm(){
             }
         }
     }
-
     return (
       <div className="row">
         <div className="offset-3 col-6">
@@ -151,5 +143,6 @@ function SaleForm(){
       </div>
     )
 }
+
 
 export default SaleForm;

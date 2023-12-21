@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
-// import './index.css'
+import './index.css'
 
 
 function Nav() {
@@ -13,7 +13,7 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle className="test" id="dropdown-basic">
               Inventory
             </Dropdown.Toggle>
 

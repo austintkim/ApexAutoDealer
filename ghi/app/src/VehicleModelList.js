@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import './index.css'
 
+
 function VehicleModelList() {
     const [vehicleModels, setVehicleModels] = useState([]);
     const fetchData = async () => {
@@ -14,7 +15,6 @@ function VehicleModelList() {
     useEffect(() => {
         fetchData();
     }, []);
-
     return (
         <div>
             <h2>Models</h2>
@@ -43,5 +43,6 @@ function VehicleModelList() {
         </div>
     );
 }
+
 
 export default VehicleModelList;

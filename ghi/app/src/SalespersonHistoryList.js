@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 
+
 function SalespersonHistoryList(){
     const [sales, setSales] = useState([]);
     const [salespeople, setSalespeople] = useState([]);
@@ -21,14 +22,11 @@ function SalespersonHistoryList(){
     useEffect(() => {
         fetchData();
     }, []);
-
-
     const [salesperson, setSalesperson] = useState('');
     const handleSalespersonChange = (event) => {
         const value = event.target.value;
         setSalesperson(value);
     }
-
     return (
       <div>
         <h2>Salesperson History</h2>
@@ -72,5 +70,6 @@ function SalespersonHistoryList(){
     </div>
     )
 }
+
 
 export default SalespersonHistoryList;
