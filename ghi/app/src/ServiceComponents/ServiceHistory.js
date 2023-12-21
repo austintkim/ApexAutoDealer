@@ -61,9 +61,10 @@ function ServiceHistory() {
                 <tbody>
                     {appointments
                         .map(appointment => {
-                            const formatted_date_time = new Date(appointment.date_time).toLocaleString()
-                            const formatted_date = formatted_date_time.slice(0, 10);
-                            const formatted_time = formatted_date_time.slice(12, formatted_date_time.length);
+                            const formatted_date_time = new Date(appointment.date_time).toLocaleString();
+                            const formatted_date = formatted_date_time.substring(0, formatted_date_time.indexOf(","));
+                            const formatted_time = formatted_date_time.substring(formatted_date_time.indexOf(" "), formatted_date_time.length)
+
                             return (
                                 <tr key={appointment.id}>
                                     <td>{appointment.vin}</td>
