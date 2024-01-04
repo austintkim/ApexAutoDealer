@@ -42,7 +42,7 @@ class Appointment(models.Model):
         related_name="appointments",
         on_delete=models.PROTECT,
     )
-    vin = models.CharField(max_length=17, unique=True)
+    vin = models.CharField(max_length=17)
     customer = models.CharField (max_length=200)
     special_vip = models.CharField (max_length=3, null=True)
     technician = models.ForeignKey(
