@@ -29,7 +29,7 @@ function ServiceHistory() {
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
-            setAppointments(data.appointments.filter(appointment => appointment.vin === vin));
+            setAppointments(data.appointments.filter(appointment => appointment.vin.indexOf(vin) > -1));
         } else {
             throw new Error('Failed to retrieve appointments data');
         }
