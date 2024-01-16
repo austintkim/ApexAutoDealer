@@ -22,6 +22,7 @@ function ServiceHistory() {
     const handleVinChange = (event) => {
         const value = event.target.value;
         setVin(value);
+        filterData(value);
     }
 
     const filterData = async (vin) => {
@@ -40,10 +41,6 @@ function ServiceHistory() {
             <h2>Service History</h2>
             <div className="mb-3">
                 <input onChange={handleVinChange} type="search" placeholder="Search by VIN" id="vin-search" value={vin} name="vin-search" />
-                <button onClick = {()=> {
-                    filterData(vin);
-                }}
-                >Search</button>
             </div>
             <table className="table table-striped">
                 <thead>
