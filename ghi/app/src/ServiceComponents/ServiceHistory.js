@@ -26,21 +26,15 @@ function ServiceHistory() {
     }
 
     const filterData = async (vin) => {
-        const url = "http://localhost:8080/api/appointments/";
-        const response = await fetch(url);
-        if (response.ok) {
-            const data = await response.json();
-            setAppointments(data.appointments.filter(appointment => appointment.vin[0] == vin[0] && appointment.vin.indexOf(vin) > -1));
-        } else {
-            throw new Error('Failed to retrieve appointments data');
-        }
+        setAppointments(appointments.filter(appointment => appointment.vin[0] == vin[0] && appointment.vin.indexOf(vin) > -1));
     }
+
 
     return (
         <div>
             <h2>Service History</h2>
             <div className="mb-3">
-                <input onChange={handleVinChange} type="search" placeholder="Search by VIN" id="vin-search" value={vin} name="vin-search" />
+                <input onChange={handleVinChange} type="text" placeholder="Search by VIN" id="vin-search" value={vin} name="vin-search" />
             </div>
             <table className="table table-striped">
                 <thead>
