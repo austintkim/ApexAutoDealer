@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 
 function ServiceHistory() {
     const [appointments, setAppointments] = useState([]);
+    const [vin, setVin] = useState('');
 
     const fetchData = async () => {
         const url = "http://localhost:8080/api/appointments/";
@@ -18,15 +19,12 @@ function ServiceHistory() {
         fetchData();
     }, []);
 
-    const [vin, setVin] = useState('');
-    const handleVinChange = (event) => {
-        const value = event.target.value;
-        setVin(value);
-        filterData(value);
-    }
-
-    const filterData = async (vin) => {
-        setAppointments(appointments.filter(appointment => appointment.vin[0] == vin[0] && appointment.vin.indexOf(vin) > -1));
+    const filterAppointments = (vin) => {
+        if (vin) {
+            return appointments.filter(appointment => appointment.vin[0] == vin[0] && appointment.vin.indexOf(vin) > -1);
+        } else {
+            return appointments
+        }
     }
 
 
@@ -34,7 +32,14 @@ function ServiceHistory() {
         <div>
             <h2>Service History</h2>
             <div className="mb-3">
-                <input onChange={handleVinChange} type="text" placeholder="Search by VIN" id="vin-search" value={vin} name="vin-search" />
+                <input
+                    onChange={(e) => setVin(e.target.value)}
+                    type="text"
+                    placeholder="Search by VIN"
+                    id="vin-search"
+                    value={vin}
+                    name="vin-search"
+                />
             </div>
             <table className="table table-striped">
                 <thead>
@@ -50,7 +55,7 @@ function ServiceHistory() {
                     </tr>
                 </thead>
                 <tbody>
-                    {appointments
+                    {filterAppointments(vin)
                         .map(appointment => {
                             const formatted_date_time = new Date(appointment.date_time).toLocaleString();
                             const formatted_date = formatted_date_time.substring(0, formatted_date_time.indexOf(","));
