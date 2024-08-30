@@ -431,6 +431,8 @@ In reference to the attached diagram, the value object for this microservice is 
 git clone <https://github.com/austintkim/ApexAutoDealer.git>
 ```
 
+2. CD into new project directory
+
 3. Build and run the project using Docker with these commands:
 ```
 docker volume create beta-data
