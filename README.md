@@ -442,3 +442,5 @@ docker-compose up
 4. After running these commands, make sure all of your Docker containers are running
 
 5. View the project in the browser: http://localhost:3000/
+
+6. Explore and enjoy!
