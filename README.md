@@ -1,33 +1,14 @@
-# CarCar
+# ApexAutoDealer
 
 Team:
 
 * Austin - Service
 * Peace - Sales
 
-## Getting Started
-
-**Make sure you have Docker, Git, and Node.js 18.2 or above**
-
-1. Fork this repository
-https://gitlab.com/akim24/project-beta
-
-2. Clone the forked repository onto your local computer:
-git clone <https://gitlab.com/akim24/project-beta.git>
-
-3. Build and run the project using Docker with these commands:
-```
-docker volume create beta-data
-docker-compose build
-docker-compose up
-```
-- After running these commands, make sure all of your Docker containers are running
-
-- View the project in the browser: http://localhost:3000/
-
 ## Diagram
 
 ![Alt text](image.png)
+
 
 ## High Level Overview
 
@@ -439,4 +420,23 @@ Sales microservice was created to handle the sales of any automobile in the CarC
 }
 
 ## Value Object
-In refernce to the attached diagram, the value object for this microservice is the AutomobileVO.
+In reference to the attached diagram, the value object for this microservice is the AutomobileVO.
+
+## Getting Started
+
+**Make sure you have Docker, Git, and Node.js 18.2 or above**
+
+1. Clone the forked repository onto your local computer:
+```
+git clone <https://github.com/austintkim/ApexAutoDealer.git>
+```
+
+3. Build and run the project using Docker with these commands:
+```
+docker volume create beta-data
+docker-compose build
+docker-compose up
+```
+4. After running these commands, make sure all of your Docker containers are running
+
+5. View the project in the browser: http://localhost:3000/
