@@ -426,7 +426,7 @@ In reference to the attached diagram, the value object for this microservice is 
 
 **Make sure you have Docker, Git, and Node.js 18.2 or above**
 
-1. Clone the forked repository onto your local computer:
+1. Clone the repository onto your local computer:
 ```
 git clone <https://github.com/austintkim/ApexAutoDealer.git>
 ```
