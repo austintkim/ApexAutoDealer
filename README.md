@@ -5,14 +5,30 @@ Team:
 * Austin - Service
 * Peace - Sales
 
-## Diagram
+## Architecture
 
 ![Alt text](image.png)
 
 
 ## High Level Overview
 
-CarCar is made up of three microservices (bounded contexts) interacting with each other and a postgres database for each:
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+
+![alt text](image-13.png)
+
+![alt text](image-14.png)
+
+![alt text](image-15.png)
+
+![alt text](image-16.png)
+
+![alt text](image-17.png)
+
+
+
+ApexAutoDealer is made up of three microservices (bounded contexts) interacting with each other and a postgres database for each:
 
 - *Inventory*
 - *Service*
@@ -27,17 +43,17 @@ CarCar is made up of three microservices (bounded contexts) interacting with eac
 I created four models Technician, Appointment, AutomobileVO and Status.
 
 The Technician model is an entity designed so that each Technician object added to the database would keep track of its:
-- *first_name*
-- *last_name*
-- *employee_id*
+- *first_name* (max_length=100)
+- *last_name* (max_length=100)
+- *employee_id* (max_length=4)
 
 The Appointment model is an entity designed so that each Appointment object added to the database would keep track of its:
 - *date_time*
-- *reason*
+- *reason* (max_length=200)
 - *status*
-- *vin*
-- *customer*
-- *special_vip*
+- *vin* (max_length=17)
+- *customer* (max_length=200)
+- *special_vip* (max_length=3)
 - *technician*
 
 The Status model is a value object designed so that for each Appointment object added to the database through the Appointment model entity, a status property with a default value of "Created" is added to that Appointment object. This status property is not something that is input by a user (both in the backend and frontend) and is handled by three custom methods (create, cancel, finish) defined in the Appointment model itself.

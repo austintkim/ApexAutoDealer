@@ -47,10 +47,10 @@ function TechnicianForm() {
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
           <h1>Create a new technician</h1>
-          <form onSubmit={handleSubmit} id="create-conference-form">
+          <form onSubmit={handleSubmit} id="create-technician-form">
             <div className="form-floating mb-3">
               <input onChange={handleFormChange} placeholder="Employee ID" required type="text" name = "employee_id" id="employee_id" className="form-control" value={formData.employee_id}/>
-              <label htmlFor="name">Employee ID</label>
+              <label htmlFor="name">Employee ID (4 character count limit - i.e. "A123)</label>
             </div>
             <div className="form-floating mb-3">
               <input onChange={handleFormChange} placeholder="First name" required type="text" name = "first_name" id="first_name" className="form-control" value={formData.first_name}/>

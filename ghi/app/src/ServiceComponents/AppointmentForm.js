@@ -82,7 +82,7 @@ function AppointmentForm() {
             <form onSubmit={handleSubmit} id="create-conference-form">
               <div className="form-floating mb-3">
                 <input onChange={handleFormChange} placeholder="Automobile VIN" required type="text" name = "vin" id="vin" className="form-control" value={formData.vin}/>
-                <label htmlFor="vin">Automobile VIN</label>
+                <label htmlFor="vin">Automobile VIN (17 character count limit - i.e. "1C3CC5FB2AN121175")</label>
               </div>
               <div className="form-floating mb-3">
                 <input onChange={handleFormChange} placeholder="Customer" required type="text" name = "customer" id="customer" className="form-control" value={formData.customer}/>
